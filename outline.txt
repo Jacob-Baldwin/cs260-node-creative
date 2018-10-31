@@ -1,0 +1,23 @@
+pages:
+  vote slideshow page
+  ranking page
+  submit person page
+
+routes:
+  get /api/person?id={person_id}
+  get /api/persons
+  post /api/upvote?id={person_id}
+  post /api/downvote?id={person_id}
+  post /api/submit
+  get /images/{image_file}
+  post /api/uploadimage
+
+model:
+  person: {
+    id: int,
+    name: str,
+    bio: str,
+    image_file: str,
+    n_upvotes: int,
+    n_downvotes: int
+  }
