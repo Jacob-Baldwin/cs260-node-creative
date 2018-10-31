@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>City Finder</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <div class="Header">
+    <h1>CS260 - Lab 4 - Node</h1>
+    <h2>Jacob Baldwin</h2>
+  </div>
+
+  <div class=Column1>
+    <div class=Container>
+      <div class=ContainerInner>
+
+        <form id="weatherForm">
+          Enter A Utah City: <input type="text" id="cityfield" value=""><br>
+          <input type="button" id="weatherButton" value="Submit">
+        </form>
+        Suggestion: <span id="txtHint"></span>
+
+      </div>
+    </div>
+  </div>
+
+  <div class=Column2>
+    <div class=Container>
+      <div class="ContainerInner">
+
+        <form id="wordForm">
+          Lookup a Word: <input type="text" id="searchWord" value=""><br>
+          <input type="button" id="searchButton" value="Submit">
+        </form>
+        Definitions: <span id="searchResults"></span>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+var updateWeather = function(e) {
+  e.preventDefault();
+  var url = "getcity?q="+$("#cityfield").val();
+  $.getJSON(url,function(data) {
+    var everything;
+    everything = "<ul>";
+    $.each(data, function(i,item) {
+      everything += "<li> "+data[i].city;
+    });
+    everything += "</ul>";
+    $("#txtHint").html(everything);
+  });
+}
+
+$( "#cityfield" ).keyup(updateWeather);
+$( "#weatherButton" ).click(updateWeather);
+$( "#weatherForm" ).submit(updateWeather);
+
+var updateWord = function(e) {
+  e.preventDefault();
+  var url = "word?w="+$("#searchWord").val();
+  $.getJSON(url,function(data) {
+    var everything;
+    everything = "<ul>";
+
+    for (i in data) {
+      everything += "<li> " + data[i].type + ": " + data[i].defenition;
+    }
+
+    everything += "</ul>";
+    if (data.length == 0) {
+      $("#searchResults").html('No Definition');
+    }
+    else {
+      $("#searchResults").html(everything);
+    }
+  });
+
+}
+
+$( "#wordForm" ).submit(updateWord);
+$( "#searchButton" ).click(updateWord);
+$( "#searchWord" ).keyup(updateWord);
+
+</script>
+
+</html>

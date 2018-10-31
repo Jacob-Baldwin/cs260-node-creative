@@ -1,0 +1,48 @@
+.Content {
+  text-align: center;
+}
+
+.Container {
+  width: 30vw;
+  box-shadow: 3px 3px 3px gray;
+  border: 3px #F8F8F8;
+  border-style: groove;
+  background-color: #99a9c4;
+  margin: 10px;
+  text-align: left;
+}
+
+.ContainerInner {
+  margin: 8px;
+}
+
+h1 {
+  margin: 0px;
+}
+
+h3 {
+  margin: 0px;
+}
+
+p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+input {
+  margin: 2px;
+}
+
+.Column1 {
+  position: absolute;
+  left: 15%;
+}
+
+.Column2 {
+  position: absolute;
+  right: 15%;
+}
+
+.Header {
+  text-align: center;
+}
