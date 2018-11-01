@@ -1,36 +1,44 @@
-# Lab4-NodeREST
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-In this lab you will implement the Utah cities suggestions RESTful service in Node.js that connects to your weather AJAX application. 
-You will take a URL with a ?q=chars suffix and will look up all of the utah cities that have those chars as a prefix. You will then return a JSON string corresponding to the entries.
+## Available Scripts
 
-If you haven't seen the express generated files before, check out this [documentation](https://expressjs.com/en/starter/generator.html).
+In the project directory, you can run:
 
-The jquery application from a previous lab should be modified to make the jsonp request to your own REST server instead of the <a href="http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q=P">one used</a> for your jquery lab. 
-Before you do that, you should copy the related files over to your newly created express server. 
+### `npm start`
 
-These [hints](https://github.com/BYUCS260/Lab4-NodeREST/wiki/Cities-REST-Service-Hints) may be helpful if you get stuck.
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Once you have the getcity service working, 
-implement a proxy for the [Owlbot](https://owlbot.info/api/v1/dictionary/owl) api that will allow the user to search for a word and see the definition. 
-These [hints](https://github.com/mjcleme/node-api-server-tutorial#cors-issues) about how to reference another server may be useful.  You might also find this [description](https://expressjs.com/en/4x/api.html#req.query) of the "req" object that is passed to your route to be useful.
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-When you're finished, you should run your node application with something like:
+### `npm test`
 
-nohup node ./bin/www >& output &
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-<strong>After you use nohup, make sure to exit by typing "exit" into the terminal (for PUTTY, there should be an equivalent if that doesn't work), otherwise the OS will kill the process in a short while.</strong>
+### `npm run build`
 
-**You should test your server to make sure it works with your jquery front-end.**
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-#### Grading:
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-- Grading will be based off the following (subject to change):
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Behavior |	Approximate Points
- --- | ---
-Your base url is of the form xxx.xxx:3004 and correctly serves static files (including your weather.html as the file when you go to '/') | 10
-Your getcity service correctly returns the JSON containing the list of cities (all cities if no prefix given) | 20
-Your jquery front-end correctly uses your getcity service instead of the one from lab 2 | 20
-You implement a route that is a proxy for the Owlbot service that can be accessed by going to the owlRoute in the page object | 20
-Your Owlbot route has associated front-end code, allowing the user to search for a word and be shown the definition | 20
-Your code is correctly up to date on github, and your frontend page looks really good. This is subjective, so wow us. | 10
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
