@@ -26,7 +26,7 @@ router.get('/downvote', (req, res, next) => {
 
   let i = persons.findIndex(x => x.id == id);
 
-  persons[i].upvotes--;
+  persons[i].downvotes++;
 
   res.json(datastore);
 });

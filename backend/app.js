@@ -23,8 +23,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', users);
-app.use('/', index);
-app.use(express.static('build'))
+
+app.use(express.static('build'));
+
+// Handles any requests that don't match the ones above by sending them to react app
+app.get('*', (req,res) =>{
+  res.sendFile('index.html', {root:"build"});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
