@@ -102,7 +102,6 @@ class Slideshow extends React.Component {
         <h4>{person.age}</h4>
         <p>{person.bio}</p>
 
-        <button className="NextButton" onClick={this.nextId}>Next</button>
         <button onClick={this.upvote}>Upvote</button>
         <button onClick={this.downvote}>Downvote</button>
       </div>
