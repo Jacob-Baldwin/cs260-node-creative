@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import styles from './Slideshow.css';
+
 class Slideshow extends React.Component {
   constructor() {
     super();
@@ -28,14 +30,21 @@ class Slideshow extends React.Component {
   }
 
   render() {
-    let image_path = "placeholder.jpg"
-    if (this.state.persons.length > 0) {
-      image_path = '/images/' + this.state.persons[this.state.current_id].image_filename;
+    let person = this.state.persons[this.state.current_id];
+
+    if (person == null) {
+      return null;
     }
 
     return (
       <div>
-        <img src={image_path}></img>
+        <img src={'/images/' + person.image_filename} className="MainImage"></img>
+
+        <h3>{person.name}</h3>
+        <h4>{(person.gender=='m')?'Male':'Female'}</h4>
+        <h4>{person.age}</h4>
+        <p>{person.bio}</p>
+
         <button></button>
         <button></button>
         <button></button>
