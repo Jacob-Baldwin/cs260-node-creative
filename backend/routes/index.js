@@ -4,7 +4,7 @@ var path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendFile('weather.html', {root: 'public'});
+  res.sendFile('index.html', {root: 'build'});
 });
 
 module.exports = router;
