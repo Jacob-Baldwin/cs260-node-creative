@@ -19,7 +19,7 @@ datastore = {
       image_filename: "alex.png",
       gender: "f",
       age: 19,
-      upvotes: 22,
+      upvotes: 0,
       downvotes: 0
     }
   ]

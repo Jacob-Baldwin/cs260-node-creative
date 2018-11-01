@@ -8,10 +8,12 @@ class Slideshow extends React.Component {
     super();
     this.state = {
       persons: [],
-      current_id: 0
+      current_index: 0,
     };
 
     this.nextId = this.nextId.bind(this);
+    this.upvote = this.upvote.bind(this);
+    this.downvote = this.downvote.bind(this);
   }
 
   componentDidMount() {
@@ -32,22 +34,60 @@ class Slideshow extends React.Component {
   }
 
   nextId() {
-    console.log('next');
-
-    var current_id = this.state.current_id
-    var new_id = this.state.current_id + 1;
+    var current_index = this.state.current_index
+    var new_id = this.state.current_index + 1;
 
     if (new_id >= this.state.persons.length) {
       new_id = 0;
     }
 
     this.setState({
-      current_id: new_id
+      current_index: new_id
+    });
+  }
+
+  upvote() {
+    let self = this;
+
+    let person = this.state.persons[this.state.current_index];
+
+    axios.get('/api/upvote?id=' + person.id)
+    .then(function (response) {
+
+       self.setState({
+         persons: response.data
+       });
+
+       self.nextId();
+    })
+    .catch(function (error) {
+      console.log(error);
+      throw error;
+    });
+  }
+
+  downvote() {
+    let self = this;
+
+    let person = this.state.persons[this.state.current_index];
+
+    axios.get('/api/downvote?id=' + person.id)
+    .then(function (response) {
+
+       self.setState({
+         persons: response.data
+       });
+
+       self.nextId();
+    })
+    .catch(function (error) {
+      console.log(error);
+      throw error;
     });
   }
 
   render() {
-    let person = this.state.persons[this.state.current_id];
+    let person = this.state.persons[this.state.current_index];
 
     if (person == null) {
       return null;
@@ -63,8 +103,8 @@ class Slideshow extends React.Component {
         <p>{person.bio}</p>
 
         <button className="NextButton" onClick={this.nextId}>Next</button>
-        <button>Upvote</button>
-        <button>Downvote</button>
+        <button onClick={this.upvote}>Upvote</button>
+        <button onClick={this.downvote}>Downvote</button>
       </div>
     )
   }
