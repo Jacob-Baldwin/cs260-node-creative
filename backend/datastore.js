@@ -16,8 +16,8 @@ datastore = {
       id: 2,
       name: "alex",
       bio: "Just alex",
-      image_filename: "alex.jpg",
-      gender: "m",
+      image_filename: "alex.png",
+      gender: "f",
       age: 19,
       upvotes: 22,
       downvotes: 0

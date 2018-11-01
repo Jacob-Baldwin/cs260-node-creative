@@ -10,6 +10,8 @@ class Slideshow extends React.Component {
       persons: [],
       current_id: 0
     };
+
+    this.nextId = this.nextId.bind(this);
   }
 
   componentDidMount() {
@@ -29,6 +31,21 @@ class Slideshow extends React.Component {
     });
   }
 
+  nextId() {
+    console.log('next');
+
+    var current_id = this.state.current_id
+    var new_id = this.state.current_id + 1;
+
+    if (new_id >= this.state.persons.length) {
+      new_id = 0;
+    }
+
+    this.setState({
+      current_id: new_id
+    });
+  }
+
   render() {
     let person = this.state.persons[this.state.current_id];
 
@@ -45,10 +62,9 @@ class Slideshow extends React.Component {
         <h4>{person.age}</h4>
         <p>{person.bio}</p>
 
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+        <button className="NextButton" onClick={this.nextId}>Next</button>
+        <button>Upvote</button>
+        <button>Downvote</button>
       </div>
     )
   }
