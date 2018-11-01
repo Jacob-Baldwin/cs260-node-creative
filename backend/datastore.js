@@ -11,6 +11,16 @@ datastore = {
       age: 22,
       upvotes: 0,
       downvotes: 0
+    },
+    {
+      id: 2,
+      name: "alex",
+      bio: "Just alex",
+      image_filename: "alex.jpg",
+      gender: "m",
+      age: 19,
+      upvotes: 22,
+      downvotes: 0
     }
   ]
 

@@ -4,7 +4,7 @@ var router = express.Router();
 var datastore = require('../datastore');
 
 router.get('/persons', function(req, res, next) {
-  res.json(datastore);
+  res.json(datastore.persons);
 });
 
 // format is /api/upvote?id={pid}
@@ -16,7 +16,7 @@ router.get('/upvote', (req, res, next) => {
 
   persons[i].upvotes++;
 
-  res.json(datastore);
+  res.json(datastore.persons);
 });
 
 // format is /api/downvote?id={pid}
@@ -28,7 +28,7 @@ router.get('/downvote', (req, res, next) => {
 
   persons[i].downvotes++;
 
-  res.json(datastore);
+  res.json(datastore.persons);
 });
 
 module.exports = router;
