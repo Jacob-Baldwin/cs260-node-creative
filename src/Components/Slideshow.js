@@ -9,7 +9,7 @@ class Slideshow extends React.Component {
     super();
     this.state = {
       persons: [],
-      current_index: 0,
+      current_index: 0
     };
 
     this.nextId = this.nextId.bind(this);
