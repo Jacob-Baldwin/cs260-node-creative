@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var uuid = require('uuid');
 
 var datastore = require('../datastore');
 
@@ -29,6 +30,22 @@ router.get('/downvote', (req, res, next) => {
   persons[i].downvotes++;
 
   res.json(datastore.persons);
+});
+
+router.post('/submit', (req, res, next) => {
+  let imageFile = req.files.avatar;
+
+  console.log(imageFile);
+
+  imageFile.mv(`build/images/${imageFile.name}`, function(err) {
+    if (err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    else {
+      return res.json(datastore.persons);
+    }
+  });
 });
 
 module.exports = router;
