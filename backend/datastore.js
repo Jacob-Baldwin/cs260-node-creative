@@ -1,5 +1,5 @@
 datastore = {
-  next_person_id: 10,
+  next_person_id: 3,
 
   persons: [
     {

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import styles from './Slideshow.css';
 import PersonCard from './PersonCard';
+import utils from '../utils';
 
 class Slideshow extends React.Component {
   constructor() {
@@ -23,9 +24,12 @@ class Slideshow extends React.Component {
     axios.get('/api/persons')
     .then(function (response) {
 
-       self.setState({
-         persons: response.data
-       });
+      let persons_shuffled = response.data
+      utils.shuffle(persons_shuffled);
+
+      self.setState({
+        persons: persons_shuffled
+      });
 
     })
     .catch(function (error) {
