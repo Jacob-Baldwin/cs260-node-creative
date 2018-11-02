@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import styles from './Slideshow.css';
+import PersonCard from './PersonCard';
 
 class Slideshow extends React.Component {
   constructor() {
@@ -95,12 +96,7 @@ class Slideshow extends React.Component {
 
     return (
       <div>
-        <img src={'/images/' + person.image_filename} className="MainImage"></img>
-
-        <h3>{person.name}</h3>
-        <h4>{(person.gender=='m')?'Male':'Female'}</h4>
-        <h4>{person.age}</h4>
-        <p>{person.bio}</p>
+        <PersonCard person={person}/>
 
         <button onClick={this.upvote}>Upvote</button>
         <button onClick={this.downvote}>Downvote</button>
