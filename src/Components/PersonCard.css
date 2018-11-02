@@ -1,5 +1,49 @@
 .MainImage {
-  height: 500px;
+  display: block;
+  max-width: 95%;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 10px;
+  margin-top: 10px;
 }
 
+.PersonCard {
+  box-shadow: 3px 3px 3px gray;
+  border: 3px #F8F8F8;
+  border-style: groove;
+  background-color: #f0d2f0;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  width: 300px;
+  align-content: center;
+  border-radius: 7px;
+}
+
+.PersonInfo {
+  margin: 10px;
+}
+
+.Age {
+  margin: 2px;
+}
+
+.Bio {
+  margin: 2px;
+}
+
+.Name {
+  margin: 2px;
+}
+
+.Gender {
+  margin: 2px;
+}
+
+.Score {
+  margin: 2px;
+}

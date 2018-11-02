@@ -9,22 +9,21 @@ const PersonCard = (props) => {
 
   let score = null;
   if (props.show_score) {
-    score = <div>
-      <p>Upvotes: {person.upvotes}</p>
-      <p>Downvotes: {person.downvotes}</p>
-    </div>;
+    score = <p className="Score">Score: {person.upvotes - person.downvotes}</p>;
   }
 
   return (
     <div className="PersonCard">
       <img src={'/images/' + person.image_filename} className="MainImage"></img>
 
-      <h3>{person.name}</h3>
-      <h4>{(person.gender=='m')?'Male':'Female'}</h4>
-      <h4>{person.age}</h4>
-      <p>{person.bio}</p>
+      <div className="PersonInfo">
+        <h3 className="Name">{person.name}</h3>
+        <h4 className="Gender">{(person.gender=='m')?'Male':'Female'}</h4>
+        <h4 className="Age">{person.age}</h4>
+        <p className="Bio">{person.bio}</p>
+        {props.show_score?score:null}
+      </div>
 
-      {props.show_score?score:null}
     </div>
   );
 }

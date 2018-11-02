@@ -1,4 +1,7 @@
 .Main {
   position: absolute;
-  top: 160px;
+  top: 170px;
+  margin: auto;
+  left: 15%;
+  right: 15%;
 }

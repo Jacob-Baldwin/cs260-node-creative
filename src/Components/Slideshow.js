@@ -99,11 +99,13 @@ class Slideshow extends React.Component {
     }
 
     return (
-      <div>
+      <div className="SlideShow">
         <PersonCard person={person}/>
 
-        <button onClick={this.upvote}>Upvote</button>
-        <button onClick={this.downvote}>Downvote</button>
+        <div className="Buttons">
+          <button onClick={this.upvote}>Upvote</button>
+          <button onClick={this.downvote}>Downvote</button>
+        </div>
       </div>
     )
   }
