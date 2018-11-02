@@ -8,6 +8,10 @@ router.get('/persons', function(req, res, next) {
   res.json(datastore.persons);
 });
 
+router.get('/datastore', function(req, res, next) {
+  res.json(datastore);
+});
+
 // format is /api/upvote?id={pid}
 router.get('/upvote', (req, res, next) => {
   let persons = datastore.persons;

@@ -103,8 +103,10 @@ class Slideshow extends React.Component {
         <PersonCard person={person}/>
 
         <div className="Buttons">
-          <button onClick={this.upvote}>Upvote</button>
-          <button onClick={this.downvote}>Downvote</button>
+          Rate this Profile to View Another:
+          <br/>
+          <button onClick={this.upvote} className="UpvoteButton">😍</button>
+          <button onClick={this.downvote} className="DownvoteButton">🤢</button>
         </div>
       </div>
     )
