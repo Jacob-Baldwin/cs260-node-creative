@@ -46,6 +46,8 @@ class Slideshow extends React.Component {
       new_id = 0;
     }
 
+    console.log("person_id: " + new_id);
+
     this.setState({
       current_index: new_id
     });
@@ -105,8 +107,8 @@ class Slideshow extends React.Component {
         <div className="Buttons">
           Rate this Profile to View Another:
           <br/>
-          <button onClick={this.downvote} className="DownvoteButton">🤢</button>
           <button onClick={this.upvote} className="UpvoteButton">😍</button>
+          <button onClick={this.downvote} className="DownvoteButton">🤢</button>
         </div>
       </div>
     )
