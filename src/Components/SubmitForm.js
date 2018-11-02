@@ -16,14 +16,15 @@ class SubmitForm extends React.Component {
     ev.preventDefault();
 
     const data = new FormData();
-    data.append('avatar', this.uploadInput.files[0]);
-    data.append('filename', this.fileName.value);
+    data.append('avatar', this.imageUpload.files[0]);
+    data.append('name', this.personName.value);
+    data.append('bio', this.personBio.value);
+    data.append('gender', this.personGender.value);
+    data.append('age', this.personAge.value);
 
     axios.post('/api/submit', data)
-    .then((response) => {
-      response.json().then((body) => {
-        console.log(body);
-      });
+    .then((res) => {
+      console.log(res);
     });
   }
 
@@ -31,16 +32,28 @@ class SubmitForm extends React.Component {
     return (
       <form onSubmit={this.handleUploadImage}>
         <div>
-          <input ref={(ref) => { this.uploadInput = ref; }} type="file" />
+          Display Image: {' '}
+          <input ref={(ref) => { this.imageUpload = ref; }} type="file" />
         </div>
         <div>
-          <input ref={(ref) => { this.fileName = ref; }} type="text" placeholder="Enter the desired name of file" />
+          <input ref={(ref) => { this.personName = ref; }} type="text" placeholder="Name" />
+        </div>
+        <div>
+          <input ref={(ref) => { this.personBio = ref; }} type="text" placeholder="Biography" />
+        </div>
+        <div>
+          <input ref={(ref) => { this.personAge = ref; }} type="number" placeholder="Age" />
+        </div>
+        <div>
+          <select ref={(ref) => { this.personGender = ref; }}>
+            <option value='m'>Male</option>
+            <option value='f'>Female</option>
+          </select>
         </div>
         <br />
         <div>
           <button>Upload</button>
         </div>
-        <img src={this.state.imageURL} alt="img" />
       </form>
     );
   }

@@ -34,8 +34,7 @@ router.get('/downvote', (req, res, next) => {
 
 router.post('/submit', (req, res, next) => {
   let imageFile = req.files.avatar;
-
-  console.log(imageFile);
+  let body = req.body;
 
   imageFile.mv(`build/images/${imageFile.name}`, function(err) {
     if (err) {
@@ -43,6 +42,21 @@ router.post('/submit', (req, res, next) => {
       return res.status(500).send(err);
     }
     else {
+      person = {
+        id: datastore.next_person_id,
+        name: body.name,
+        bio: body.bio,
+        gender: body.gender,
+        age: parseInt(body.age),
+        downvotes: 0,
+        upvotes: 0,
+        image_filename: imageFile.name
+      }
+
+      datastore.next_person_id = datastore.next_person_id + 1;
+
+      datastore.persons.push(person);
+
       return res.json(datastore.persons);
     }
   });
