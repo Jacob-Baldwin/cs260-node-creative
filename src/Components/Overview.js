@@ -18,9 +18,18 @@ class Overview extends React.Component {
     axios.get('/api/persons')
     .then(function (response) {
 
-       self.setState({
-         persons: response.data
-       });
+      let sorted_persons = response.data;
+
+      sorted_persons.sort((a,b) => {
+        a.score = a.upvotes - a.downvotes;
+        b.score = b.upvotes - b.downvotes;
+
+        return (b.score - a.score);
+      })
+
+      self.setState({
+        persons: sorted_persons
+      });
 
     })
     .catch(function (error) {
