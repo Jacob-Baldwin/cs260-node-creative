@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Route, Redirect } from 'react-router'
 
 class SubmitForm extends React.Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class SubmitForm extends React.Component {
 
     this.state = {
       imageURL: '',
+      redirect: null
     };
 
     this.handleUploadImage = this.handleUploadImage.bind(this);
@@ -25,6 +27,10 @@ class SubmitForm extends React.Component {
     axios.post('/api/submit', data)
     .then((res) => {
       console.log(res);
+      alert("Submitted Successfully");
+      this.setState({
+        redirect: <Redirect to="/" push={true}/>
+      })
     });
   }
 
@@ -32,14 +38,7 @@ class SubmitForm extends React.Component {
     return (
       <form onSubmit={this.handleUploadImage}>
         <div>
-          Display Image: {' '}
-          <input ref={(ref) => { this.imageUpload = ref; }} type="file" />
-        </div>
-        <div>
           <input ref={(ref) => { this.personName = ref; }} type="text" placeholder="Name" />
-        </div>
-        <div>
-          <input ref={(ref) => { this.personBio = ref; }} type="text" placeholder="Biography" />
         </div>
         <div>
           <input ref={(ref) => { this.personAge = ref; }} type="number" placeholder="Age" />
@@ -52,8 +51,18 @@ class SubmitForm extends React.Component {
         </div>
         <br />
         <div>
+          <textarea ref={(ref) => { this.personBio = ref; }} type="text" placeholder="Biography" />
+        </div>
+        <br/>
+        Display Image:
+        <div>
+          <input ref={(ref) => { this.imageUpload = ref; }} type="file" />
+        </div>
+        <br />
+        <div>
           <button>Upload</button>
         </div>
+        {this.state.redirect}
       </form>
     );
   }

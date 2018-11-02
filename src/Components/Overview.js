@@ -39,7 +39,11 @@ class Overview extends React.Component {
   }
 
   render() {
-    let persons = this.state.persons.map((p) => (<PersonCard person={p} show_score={true}/>));
+    let i = 0;
+    let persons = this.state.persons.map((p) => {
+      i = i + 1;
+      return (<PersonCard person={p} ranking={i}/>)
+    });
 
     return (
       <div>

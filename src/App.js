@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import Main from './Components/Main';
 import Header from './Components/Header';
 
+import styles from './App.css';
 import { Route } from 'react-router-dom'
 
 const App = () => (
-  <div>
+  <div className="App">
     <Header/>
     <Main/>
   </div>

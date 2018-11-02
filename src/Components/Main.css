@@ -1,7 +1,9 @@
 .Main {
   position: absolute;
-  top: 170px;
+  top: 120px;
   margin: auto;
-  left: 15%;
-  right: 15%;
+  left: 0px;
+  right: 0px;
+  background-image: linear-gradient(pink, white);
+  height: 100%;
 }

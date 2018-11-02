@@ -8,7 +8,9 @@ const PersonCard = (props) => {
 
 
   let score = null;
-  if (props.show_score) {
+  let ranking = null;
+  if (props.ranking) {
+    ranking = <p className="Ranking">Rank: {props.ranking}</p>;
     score = <p className="Score">Score: {person.upvotes - person.downvotes}</p>;
   }
 
@@ -21,7 +23,8 @@ const PersonCard = (props) => {
         <h4 className="Gender">{(person.gender=='m')?'Male':'Female'}</h4>
         <h4 className="Age">{person.age}</h4>
         <p className="Bio">{person.bio}</p>
-        {props.show_score?score:null}
+        {ranking}
+        {score}
       </div>
 
     </div>
